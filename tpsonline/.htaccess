@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^demo\.smartcargo\.inaportnet\.com$ [NC]
+RewriteRule ^(.*)$ http://www.domain.com/$1 [L,R=301,NC]
+
+RewriteCond $1 !^(index\.php|favicon\.ico|assets|robots\.txt|user_guide)
+RewriteRule ^(.*)$ index.php/$1 [L]

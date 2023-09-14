@@ -1,0 +1,224 @@
+/** SmartCargo.css
+  * Smartcargo Custom CSS
+  *
+  * @author: Djati Satria <djati [at] ilcs.co.id>, <djati.satria [at] gmail.com>
+  * @date  : 2013 08 19 18:18
+  */
+
+/* Sticky footer styles
+
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -80px;
+  /* Pad bottom by footer height */
+  padding: 0 0 80px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+  margin-top:20px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.navbar-fixed-top{
+	box-shadow: 0px 0px 10px #000;
+	-moz-box-shadow:0px 0px 10px #000;
+	-webkit-box-shadow: 0px 0px 10px #000;
+}
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#footer > .container .android{
+	float:right;
+	margin-left:5px;
+	width:32px;
+	height:60px;
+	background:url('img/android_48.png') no-repeat center right;
+}
+
+#footer > .container .html5{
+	float:right;
+	margin-left:5px;
+	width:32px;
+	height:60px;
+	background:url('img/html5_32.png') no-repeat center right;
+}
+
+code {
+  font-size: 80%;
+}
+
+
+/* CUSTOM STYLE */
+.ct-listview-toolbar{
+	margin-bottom:20px;
+}
+
+.error {
+	color: red;
+}
+
+.form-horizontal .control-label {
+	text-align: left;
+}
+
+fieldset.delivery-request-border, fieldset.fieldset-bordered {
+  border: 1px solid #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 10px 0 !important;
+  /*
+  -webkit-box-shadow:  0px 0px 0px 0px #000;
+          box-shadow:  0px 0px 0px 0px #000;
+  */
+  border-radius: 4px;
+}
+
+fieldset.fieldset-nested{
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	border-left:1px solid #f00 !important;
+
+}
+
+legend.delivery-request-border, legend.fieldset-bordered {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  text-align: left !important;
+  width:auto;
+  padding:0 10px;
+  border-bottom:none;
+  margin-bottom:5px;
+  
+}
+
+.proforma-preview-window {
+  margin-bottom: 25px;
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #333;
+  position:relative;
+}
+
+.invoice-preview-window {
+  margin-bottom: 25px;
+  height: 500px;
+  border: 1px solid #333;
+  position:relative;
+}
+
+.invoice-preview-window .viewport, .proforma-preview-window .viewport{
+  overflow-y: auto;
+  height:100%;
+  padding:10px;
+}
+
+.preview-button {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  opacity:0.5;
+}
+
+.preview-button:hover{
+	opacity:1;	
+}
+
+.ajax-load{
+	background-image:url(img/control/ajax-loader.gif);
+	background-repeat:no-repeat;
+	background-position:center right;
+}
+
+
+
+
+.info_clickpay_mandiri{
+	background-image: url('../third_party/mandiri_clickpay_120.png');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+
+/* Additional General Utility Class */
+.remove-margin-top{
+	margin-top:0px;
+}
+.margin-bottom{
+	margin-bottom:10px;
+}
+
+
+/* Additional Grid System Class */
+.row .alpha{
+	padding-left:0px;
+}
+.row .beta{
+	padding-right:0px;
+}
+
+
+/* File Input Styling */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+} 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+/* Main page CSS */
+
+.container.main {
+margin-top: 50px;
+}
+
+.span7.welcome-container {
+color: white;
+
+}
+
+.span7.welcome-container {
+	margin-top:100px;
+	text-shadow: #000 0 5px 7px;
+}
+
+.span7.welcome-container h1 {
+font-size: 50px;
+}
+
+
+
+.login {
+background-color: white;
+padding: 20px;
+border: 1px solid grey;
+border-radius: 10px;
+width: 260px;
+margin-left: 60px;
+background: -webkit-linear-gradient(top,#fff 0,#ddd 100%);
+}
+
+.fl.loginlogin {
+color: #797979;
+font-weight: bold;
+font-size: 18px;
+}
+
+span.or {
+font-style: italic;
+color: rgb(177, 177, 177);
+font-size: 13px;
+margin-right: 10px;
+text-decoration:none !important;}
+
+a span.register {
+font-weight: bold;
+text-decoration: underline;
+color : #404040;
+}
+
+.login input[type="text"], .login input[type="password"] {
+width: 240px;
+}
+
+
+.username  input[type="text"] {
+background : url(../img/icon-user.png) #fff no-repeat  230px  ;
+}
+
+.password  input[type="password"] {
+background : url(../img/icon-pass.png) #fff no-repeat  230px  ;
+}
+
+.checkbox.fl {
+font-size: 10px;
+display:inline;
+}
+
+
+footer {color:white;text-shadow: #000 0 5px 7px;}
+footer a {color:white;text-shadow: #000 0 5px 7px;}
+footer a:hover {color:black;text-shadow: #000 0 5px 7px;}

@@ -1,0 +1,112 @@
+variables:
+  WORK_DIR: ${CI_PROJECT_NAME} #mengambil nama project di gitlab
+  BRANCH: ${CI_COMMIT_REF_NAME} #mengambil nama brach
+  TAG: worker04.ilcs.co.id/ikt-tpsonline/${CI_COMMIT_REF_NAME}:${CI_COMMIT_TAG}
+  DOCKER_DRIVER: overlay2
+  GIT_SSL_NO_VERIFY: "true"
+
+stages:
+  - berfore-start
+  - review-code
+  - build-image
+  - deploy
+
+
+cek-env:
+  stage: berfore-start #isi dari stages yang sudah dideklarasikan diatas
+  script: 
+    - echo $WORK_DIR
+    - echo $BRANCH
+    - echo $TAG
+    - echo $COMMIT_TIME
+    - echo $BUILDID
+    - export
+  tags: 
+    - serv93
+  only:
+     - merge_requests
+
+review-code:
+  stage: review-code
+  image: 
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script: 
+    - sonar-scanner
+  allow_failure: true
+  only:
+     - merge_requests
+  tags:
+    - sonarcube167
+
+build-image:
+  stage: build-image
+  script:
+    - export
+    - echo $TAG
+    - MYVAR=${BRANCH}
+    - DATAKU=${MYVAR%_*}
+    - echo $DATAKU
+    - if [ "${DATAKU}" == "dev" ]; then MODULE="dev"; else MODULE="prod"; fi
+    - echo $MODULE
+    - docker build -t  worker04.ilcs.co.id/ikt-tpsonline/$MODULE:${CI_COMMIT_TAG} . --build-arg ENV=dev --build-arg USER=${ENVUSER} --build-arg PASS=${ENVPASSWORD}
+  only:
+      - /^dev_[0-9]+(?:.[0-9]+)+$/
+  tags:
+    - serv93
+
+build-imageProd:
+  stage: build-image
+  script:
+    - export
+    - echo $TAG
+    - MYVAR=${BRANCH}
+    - DATAKU=${MYVAR%_*}
+    - echo $DATAKU
+    - if [ "${DATAKU}" == "dev" ]; then MODULE="dev"; else MODULE="prod"; fi
+    - echo $MODULE
+    - docker build -t  worker04.ilcs.co.id/ikt-tpsonline/$MODULE:${CI_COMMIT_TAG} . --build-arg ENV=prod --build-arg USER=${ENVUSER} --build-arg PASS=${ENVPASSWORD}
+  only:
+      - /^prod_[0-9]+(?:.[0-9]+)+$/
+  tags:
+    - prod128
+  
+deploy-dev:
+  stage: deploy
+  script:
+    - MYVAR=${BRANCH}
+    - DATAKU=${MYVAR%_*}
+    - echo $DATAKU
+    - docker container rm --force $(docker container ls -q --filter name=intapps-dev-*)
+    - docker run --name intapps-dev-${CI_PIPELINE_ID} --link $MYSQLCONTAINERDEV:db -d -p 8020:80 worker04.ilcs.co.id/ikt-tpsonline/dev:${CI_COMMIT_TAG}
+  environment:
+    name: Dev-ENV
+    url: http://10.8.3.93:8020/
+  only:
+      - /^dev_[0-9]+(?:.[0-9]+)+$/
+  tags:
+    - serv93
+
+deploy-prod:
+  stage: deploy
+  script:
+    - MYVAR=${BRANCH}
+    - DATAKU=${MYVAR%_*}
+    - echo $DATAKU
+    - docker container stop $(docker container ls -q --filter name=intapps-*)
+    - docker run --name intapps-${CI_PIPELINE_ID} --link $MYSQLPROD:db -d -p 8020:80 worker04.ilcs.co.id/ikt-tpsonline/prod:${CI_COMMIT_TAG}
+  environment:
+    name: Prod-ENV
+    url: http://10.8.1.128:8020/
+  only:
+      - /^prod_[0-9]+(?:.[0-9]+)+$/
+  when: manual
+  tags:
+    - prod128

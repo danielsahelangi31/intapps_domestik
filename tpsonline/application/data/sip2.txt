@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<people>
+		<name>Brekele</name>
+		<grade>A</grade>
+		<name>Brekele</name>
+		<grade>A</grade>
+		<name>Brekele</name>
+		<kampret />
+		<grade>A</grade>
+	</people>
+	<people2>
+		<name2>Brekele</name2>
+		<grade2>A</grade2>
+	</people2>
+</root>

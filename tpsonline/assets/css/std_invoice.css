@@ -1,0 +1,107 @@
+#header{
+	padding:4px;
+	border: 1px solid #000;	
+}
+#main_logo{
+	float:left;
+	width:80px;
+	margin-right:20px;	
+}
+#kop{
+	float:left;	
+	width:500px;
+}
+#nomor_invoice{
+	float:right;	
+}
+#sub_header{
+	clear:both;
+	border:1px solid #000;
+	border-top:none;
+	padding:5px 5px 5px 10px;	
+}
+#invoice_header{
+	border:1px solid #000;
+	border-top:none;
+	padding:5px;
+}
+#invoice_header_data{
+	width:100%;
+}
+#invoice_header_data td{
+	font-size:9pt;	
+}
+
+#invoice_detail{
+	border:1px solid #000;
+	border-top:none;
+	padding:5px;	
+}
+#invoice_detail_table{
+	width:100%;	
+	border-collapse:collapse;
+}
+#invoice_detail_table td, #invoice_detail_table th{
+	border:1px solid #000;
+}
+#invoice_detail_table td.left{
+	text-align:left;
+}
+#invoice_detail_table td.center{
+	text-align:center;
+}
+#invoice_detail_table td.right{
+	text-align:right;
+}
+#detail_wrap{
+	height:120mm;
+}
+
+
+#signature{
+	float:right;
+	width:80mm;	
+	text-align:center;
+}
+#signature p{
+	line-height:1;
+	margin:0px;
+	padding:0px;	
+}
+
+#invoice_note{
+		
+}
+#invoice_note p{
+	line-height:1;
+	margin:0px;
+	padding:0px;		
+}
+
+
+#kwitansi_wrap{
+	border:1px solid #000;
+	margin-top:5mm;
+	padding:2mm;	
+}
+#kwitansi_header{
+	text-align:center;
+	font-size:10pt;
+	margin-bottom:2mm;	
+}
+
+#kwitansi_footer_left{
+	float:left;
+	width:45%;	
+	padding-top:10mm;
+}
+#kwitansi_footer_right{
+	float:right;
+	margin-right:10mm;
+	width:30%;
+}
+
+#kwitansi_sejumlah{
+	background:url(./images/pdf_img/kwitansi_jumlah.gif) no-repeat;	
+	padding:2mm 5mm 2mm 5mm;
+}

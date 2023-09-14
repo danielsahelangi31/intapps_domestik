@@ -1,0 +1,8 @@
+.gitlab-ci.yml merge=ours
+Dockerfile merge=ours
+
+
+tpsonline/application/config/wsdl/* merge=ours
+tpsonline/application/config/database.php merge=ours
+tpsonline/application/config/constants.php merge=ours
+tpsonline/application/config/config.php merge=ours
